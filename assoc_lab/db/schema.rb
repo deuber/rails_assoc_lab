@@ -11,43 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114062036) do
+ActiveRecord::Schema.define(version: 20150610014226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "authors", force: true do |t|
+  create_table "authors", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "y_o_b"
-    t.integer  "y_o_d"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "yob"
+    t.integer  "yod"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "book_libraries", force: true do |t|
-    t.integer  "library_id"
-    t.integer  "book_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "books", force: true do |t|
+  create_table "books", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "publication_year"
     t.string   "isbn"
     t.integer  "author_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
-  create_table "libraries", force: true do |t|
+  create_table "books_libraries", force: :cascade do |t|
+    t.integer  "library_id"
+    t.integer  "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "libraries", force: :cascade do |t|
     t.string   "name"
     t.string   "city"
     t.string   "state"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
