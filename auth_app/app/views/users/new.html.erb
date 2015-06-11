@@ -1,0 +1,10 @@
+<h1> SIGN UP </h>
+<%= form_for :user, url: "/users", method: "post" do |f| %>
+
+    <%= f.text_field :email, :placeholder => "email address" %> <br />
+    <%= f.text_field :password, :placeholder => "password" %> <br />
+    <%= f.text_field :password_confirmation, :placeholder => "password confirm" %> <br />
+    <%= f.submit "create new user" %>
+
+<% end %>
+

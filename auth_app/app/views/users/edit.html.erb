@@ -1,0 +1,9 @@
+<%= form_for :user, url: update_user_path(@user), method: "put" do |f| %>
+
+    <%= f.text_field :name %>
+    <%= f.text_area :description %>
+    <%= f.submit "update user" %>
+    <%= token_tag form_authenticity_token %>
+
+<% end %>
+
